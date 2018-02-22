@@ -1,7 +1,12 @@
 class Sorter {
   constructor() {
     // creates instance of Sorter class
-    this.arr = [];    
+    this.arr = [];
+
+    this.comparator = function (a, b) {
+      if (a > b) return 1;
+      if (a < b) return -1;
+    };
   }
 
   add(element) {
@@ -40,10 +45,7 @@ class Sorter {
   }
 
   setComparator(compareFunction) {
-    //takes compareFunction as parameter and use it while sorting elements
-    //if (a > b) return 1;
-    //if (a < b) return -1;
-    return 1;
+    this.comparator = compareFunction;
   }
 }
 
