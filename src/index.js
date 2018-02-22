@@ -1,30 +1,49 @@
 class Sorter {
   constructor() {
-    // your implementation
+    // creates instance of Sorter class
+    this.arr = [];    
   }
 
   add(element) {
-    // your implementation
+    //add element and store it in any way inside
+    this.arr.push(element);   
   }
 
   at(index) {
-    // your implementation
+    return this.arr[index];
   }
 
   get length() {
-    // your implementation
+    //return the count of current elements, which were added to Sorter instance via add method
+    return this.arr.length;
+    //return 1;
   }
 
   toArray() {
-    // your implementation
+    //return all elements in array
+    //return '[ ' + this.arr.join(', ') + ' ]';
+    return this.arr;
   }
 
   sort(indices) {
-    // your implementation
+    //takes indices of already added elements and sorts only these elements
+    /*function compareNumeric(a, b) {
+      if (a > b) return 1;
+      if (a < b) return -1;
+    };*/
+
+    //return this.arr.sort(this.setComparator(indices));
+  
+
+    //indices.sort(setComparator);
+    return this.arr.sort();
   }
 
   setComparator(compareFunction) {
-    // your implementation
+    //takes compareFunction as parameter and use it while sorting elements
+    //if (a > b) return 1;
+    //if (a < b) return -1;
+    return 1;
   }
 }
 
