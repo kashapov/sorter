@@ -6,6 +6,7 @@ class Sorter {
     this.comparator = function (a, b) {
       if (a > b) return 1;
       if (a < b) return -1;
+      return 0;
     };
   }
 
@@ -30,8 +31,18 @@ class Sorter {
 
   sort(indices) {
     //takes indices of already added elements and sorts only these elements
+    var arr_tmp = [];
+
+    for (var i=0; i<indices.length; i++) {
+      arr_tmp.push(this.arr[indices[i]]);
+    }    
     
-    return this.arr.sort();
+    arr_tmp.sort(this.comparator);
+    indices.sort(this.comparator);
+    
+    for (i = 0; i < indices.length; i++) {
+        this.arr[indices[i]] = arr_tmp[i];
+    }    
   }
 
   setComparator(compareFunction) {
