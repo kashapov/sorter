@@ -38,7 +38,7 @@ class Sorter {
     }    
     
     arr_tmp.sort(this.comparator);
-    indices.sort(this.comparator);
+    indices.sort();
     
     for (i = 0; i < indices.length; i++) {
         this.arr[indices[i]] = arr_tmp[i];
