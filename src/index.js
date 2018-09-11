@@ -1,48 +1,52 @@
 class Sorter {
   constructor() {
-    // creates instance of Sorter class
     this.arr = [];
 
-    this.comparator = function (a, b) {
+    this.comparator = (a, b) => {
       if (a > b) return 1;
       if (a < b) return -1;
       return 0;
     };
   }
 
+  //add element and store it in any way inside
   add(element) {
-    //add element and store it in any way inside
-    this.arr.push(element);   
+    //console.log(element);
+    this.arr.push(element);
   }
 
   at(index) {
     return this.arr[index];
   }
 
+  //return the count of current elements, which were added to Sorter instance via add method
   get length() {
-    //return the count of current elements, which were added to Sorter instance via add method
     return this.arr.length;
   }
 
+  //return all elements in array
   toArray() {
-    //return all elements in array    
+    //console.log('arr:' + this.arr);
     return this.arr;
   }
 
+  //takes indices of already added elements and sorts only these elements
   sort(indices) {
-    //takes indices of already added elements and sorts only these elements
-    var arr_tmp = [];
+    let arrTmp = [];
 
-    for (var i=0; i<indices.length; i++) {
-      arr_tmp.push(this.arr[indices[i]]);
-    }    
-    
-    arr_tmp.sort(this.comparator);
     indices.sort();
-    
-    for (i = 0; i < indices.length; i++) {
-        this.arr[indices[i]] = arr_tmp[i];
-    }    
+    //console.log('indices:' + indices);
+
+    for (let i = 0; i < indices.length; i++) {
+      arrTmp.push(this.arr[indices[i]]);
+    }
+
+    arrTmp.sort(this.comparator);
+
+    for (let i = 0; i < indices.length; i++) {
+      this.arr[indices[i]] = arrTmp[i];
+    }
+    //console.log('arr:' + this.arr);
   }
 
   setComparator(compareFunction) {
